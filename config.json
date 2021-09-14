@@ -1,0 +1,17 @@
+{
+  "name": "WeeWx",
+  "version": "0.1.0",
+  "slug": "weewx",
+  "description": "WeeWX Weather Station",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "startup": "application",
+  "boot": "auto",
+  "ports": {
+	  "8088/tcp": 8088
+  },
+  "devices": [
+	  "/dev/ttyUSB0:/dev/ttyUSB0:rwm"
+  ],
+  "options": {},
+  "schema": {}
+}
