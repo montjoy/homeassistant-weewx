@@ -2,6 +2,7 @@ ARG BUILD_FROM
 FROM $BUILD_FROM
 
 ENV LANG C.UTF-8
+EXPOSE 8099/tcp
 RUN apk add python3 py3-configobj py3-serial py3-usb py3-cheetah py3-pillow
 RUN wget https://weewx.com/downloads/weewx-4.5.1.tar.gz
 RUN tar -xzvf weewx-4.5.1.tar.gz
@@ -9,11 +10,12 @@ RUN cd weewx-4.5.1
 WORKDIR weewx-4.5.1
 RUN echo $PWD
 RUN python3 ./setup.py build
-RUN mkdir -p /home/weewx
+RUN mkdir -p /home/weewx/public_html
 COPY weewx.conf /home/weewx/weewx.conf
 RUN python3 ./setup.py install
+WORKDIR /home/weewx
+RUN sed -i 's/handlers = syslog,/handlers = console,/g' bin/weeutil/logger.py
 
-RUN mkdir -p /home/weewx/public_html
 
 # Copy data for add-on
 COPY run.sh /

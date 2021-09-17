@@ -1,17 +1,20 @@
 {
   "name": "WeeWx",
-  "version": "0.1.0",
+  "version": "0.1.10",
   "slug": "weewx",
   "description": "WeeWX Weather Station",
-  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "arch": ["aarch64"],
   "startup": "application",
   "boot": "auto",
   "ports": {
-	  "8088/tcp": 8088
+	  "8099/tcp": 8099
   },
-  "devices": [
-	  "/dev/ttyUSB0:/dev/ttyUSB0:rwm"
-  ],
   "options": {},
-  "schema": {}
+  "schema": {},
+  "webui": "http://[HOST]:[PORT:8099]",
+  "stage": "experimental",
+  "privileged": ["NET_ADMIN", "SYS_ADMIN", "SYS_RAWIO", "SYS_TIME", "SYS_NICE", "SYS_RESOURCE", "SYS_PTRACE", "SYS_MODULE", "DAC_READ_SEARCH"],
+  "full_access": true,
+  "apparmor": false,
+  "ingress": true
 }
