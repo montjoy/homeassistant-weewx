@@ -1,9 +1,9 @@
 {
   "name": "WeeWx",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "slug": "weewx",
   "description": "WeeWX Weather Station",
-  "arch": ["aarch64"],
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
   "startup": "application",
   "boot": "auto",
   "ports": {
@@ -13,7 +13,6 @@
   "schema": {},
   "webui": "http://[HOST]:[PORT:8099]",
   "stage": "experimental",
-  "apparmor": false,
   "ingress": true,
   "devices": [
 	  "/dev/ttyUSB0"
