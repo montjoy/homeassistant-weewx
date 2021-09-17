@@ -15,6 +15,8 @@ COPY weewx.conf /home/weewx/weewx.conf
 RUN python3 ./setup.py install
 WORKDIR /home/weewx
 RUN sed -i 's/handlers = syslog,/handlers = console,/g' bin/weeutil/logger.py
+WORKDIR /
+RUN rm -rf weex-4.5.1 weex-4.5.1.tar.gz
 
 
 # Copy data for add-on
