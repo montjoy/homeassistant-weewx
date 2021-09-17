@@ -1,6 +1,6 @@
 {
   "name": "WeeWx",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "slug": "weewx",
   "description": "WeeWX Weather Station",
   "arch": ["aarch64"],
@@ -13,8 +13,9 @@
   "schema": {},
   "webui": "http://[HOST]:[PORT:8099]",
   "stage": "experimental",
-  "privileged": ["NET_ADMIN", "SYS_ADMIN", "SYS_RAWIO", "SYS_TIME", "SYS_NICE", "SYS_RESOURCE", "SYS_PTRACE", "SYS_MODULE", "DAC_READ_SEARCH"],
-  "full_access": true,
   "apparmor": false,
-  "ingress": true
+  "ingress": true,
+  "devices": [
+	  "/dev/ttyUSB0"
+  ]
 }
