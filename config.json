@@ -7,7 +7,37 @@
   "startup": "application",
   "boot": "auto",
   "ports": {
-	  "8099/tcp": 8099
+    "8099/tcp": 8099
+  },
+  "options": {
+    "debug": "0",
+    "weewx_root": "/home/weewx",
+    "station_location": "Mycity, Mypolity",
+    "station_latitude": "-45.00",
+    "station_longitude": "0",
+    "station_altitude": "800",
+    "station_altitude_unit": "foot",
+    "station_driver": "WS23xx",
+    "station_rain_year_start": "1",
+    "station_week_start": "6",
+    "driver_port": "/dev/ttyUSB0",
+    "driver_model": "LaCrosse WS2316",
+    "driver_driver": "weewx.drivers.ws23xx"
+  },
+  "schema": {
+    "debug": "int",
+    "weewx_root": "str",
+    "station_location": "str",
+    "station_latitude": "str",
+    "station_longitude": "str",
+    "station_altitude": "int",
+    "station_altitude_unit": "str",
+    "station_driver": "str",
+    "station_rain_year_start": "int",
+    "station_week_start": "int",
+    "driver_port": "str",
+    "driver_model": "str",
+    "driver_driver": "str"
   },
   "options": {},
   "schema": {},
