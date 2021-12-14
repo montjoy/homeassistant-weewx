@@ -1,0 +1,56 @@
+{
+  "name": "WeeWx",
+  "version": "0.1.15",
+  "slug": "weewx",
+  "description": "WeeWX Weather Station",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "startup": "application",
+  "boot": "auto",
+  "ports": {
+	  "8099/tcp": 8099
+  },
+  "options": {
+    "debug": 0,
+    "weewx_root": "/home/weewx",
+    "station": {
+        "location": "Mycity, Mypolity",
+        "latitude": 45.000,
+        "longitude": -90.000,
+        "altitude": 800,
+        "altitude_unit": "foot",
+        "driver": "WS23xx",
+        "rain_year_start": 1,
+        "week_start": 6
+    },
+    "driver_settings": {
+        "port": "/dev/ttyUSB0",
+        "model": "LaCrosse WS2316",
+        "driver": "weewx.drivers.ws23xx"
+    }
+  },
+  "schema": {
+    "debug": "int",
+    "weewx_root": "str",
+    "station": {
+        "location": "str",
+        "latitude": "float(0,90)",
+        "longitude": "str",
+        "altitude": "int",
+        "altitude_unit": "match(foot|meter)",
+        "driver": "str",
+        "rain_year_start": "int(1,12)",
+        "week_start": "int(0,6)"
+    },
+    "driver_settings": {
+        "port": "str(1,4096)",
+        "model": "str(1,40)",
+        "driver": "str(1,40)"
+    }
+  },
+  "webui": "http://[HOST]:[PORT:8099]",
+  "stage": "experimental",
+  "ingress": true,
+  "devices": [
+	  "/dev/ttyUSB0"
+  ]
+}
