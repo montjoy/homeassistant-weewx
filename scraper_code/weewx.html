@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Bloomington, Minnesota</title>
+    <link rel="icon" type="image/png" href="favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="seasons.css"/>
+    <script src="seasons.js"></script>
+  </head>
+
+  <body onload="setup();">
+
+<div id="title_bar">
+  <div id="title">
+    <h1 class="page_title">Bloomington, Minnesota</h1>
+    <p class="lastupdate">11/02/21 23:15:00</p>
+  </div>
+  <div id="rss_link"><a href="rss.xml">RSS</a></div>
+  <div id="reports">
+    Monthly Reports:
+    <select name="reports" onchange="openTabularFile(value)">
+      <option value="2021-10">2021-10</option>
+      <option value="2021-11">2021-11</option>
+      <option selected>- Select Month -</option>
+    </select>
+    <br/>
+    Yearly Reports:
+    <select name="reports" onchange="openTabularFile(value)">
+      <option value="2021">2021</option>
+      <option selected>- Select Year -</option>
+    </select>
+    <br/>
+  </div>
+</div>
+    
+    <div id="contents">
+      <div id="widget_group">
+
+<div id='current_widget' class="widget">
+  <div class="widget_title">
+    Current Conditions
+    <a class="widget_control"
+      onclick="toggle_widget('current')">&diams;</a>
+  </div>
+
+  <div class="widget_contents">
+  <table>
+    <tbody>
+      <tr>
+        <td class="label">Outside Temperature</td>
+        <td class="data">37.8&#176;F</td>
+      </tr>
+      <tr>
+        <td class="label">Heat Index</td>
+        <td class="data">37.8&#176;F</td>
+      </tr>
+      <tr>
+        <td class="label">Wind Chill</td>
+        <td class="data">37.8&#176;F</td>
+      </tr>
+      <tr>
+        <td class="label">Dew Point</td>
+        <td class="data">24.3&#176;F</td>
+      </tr>
+      <tr>
+        <td class="label">Humidity</td>
+        <td class="data">58%</td>
+      </tr>
+      <tr>
+        <td class="label">Barometer</td>
+        <td class="data">30.170 inHg (0.019)</td>
+      </tr>
+      <tr>
+        <td class="label">Wind</td>
+        <td class="data">0 mph N/A (   N/A)</td>
+      </tr>
+      <tr>
+        <td class="label">Rain Rate</td>
+        <td class="data">0.00 in/h</td>
+      </tr>
+      <tr>
+        <td class="label">Rain Today</td>
+        <td class="data">0.00 in</td>
+      </tr>
+      <tr>
+        <td class="label">Inside Temperature</td>
+        <td class="data">72.0&#176;F</td>
+      </tr>
+      <tr>
+        <td class="label">Inside Humidity</td>
+        <td class="data">47%</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+</div>
+
+
+<div id="sunmoon_widget" class="widget">
+  <div class="widget_title">
+    <a href="celestial.html">Celestial</a>
+    <a class="widget_control"
+       onclick="toggle_widget('sunmoon')">&diams;</a>
+  </div>
+  <div class="widget_contents">
+    <div id="celestial_summary">
+      <table class="celestial">
+        <tr>
+          <td class="label">Sunrise</td>
+          <td class="data">07:51:03</td>
+        </tr>
+        <tr>
+          <td class="label">Sunset</td>
+          <td class="data">18:02:10</td>
+        </tr>
+        <tr>
+          <td class="label">Moon Phase</td>
+          <td class="data">Waning crescent<br/>
+            4%</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<div id='hilo_widget' class="widget">
+  <div class="widget_title">
+    <a href="statistics.html">High/Low</a>
+    <a class="widget_control"
+      onclick="toggle_widget('hilo')">&diams;</a>
+  </div>
+
+  <div class="widget_contents">
+  <table>
+    <tbody>
+      <tr>
+        <td></td>
+        <th>&nbsp;<br/>Today</th>
+        <th class="hilo_week">&nbsp;<br/>Week</th>
+        <th class="hilo_month">&nbsp;<br/>Month</th>
+        <th class="hilo_year">
+            <a onclick="toggle_rainyear()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>Year</a>
+        </th>
+        <th class="hilo_rainyear">
+            <a onclick="toggle_rainyear()">Rain<br/>Year</a>
+        </th>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="label">Outside Temperature</td>
+        <td class="data new_row hilo_day">
+          <span title="14:18:20">
+            44.1</span><br/>
+          <span title="08:28:36">
+            32.9</span>
+        </td>
+        <td class="data new_row hilo_week">
+          <span title="00:00:36 (Sunday)">
+            48.7</span><br/>
+          <span title="05:58:49 (Monday)">
+            32.5</span>
+        </td>
+        <td class="data new_row hilo_month">
+          <span title="11/02/21 14:18:20">
+            44.1</span><br/>
+          <span title="11/01/21 05:58:49">
+            32.5</span>
+        </td>
+        <td class="data new_row hilo_year">
+          <span title="10/18/21 17:29:12">
+            74.5</span><br/>
+          <span title="10/23/21 07:29:12">
+            32.5</span>
+        </td>
+        <td class="data new_row hilo_rainyear">
+          <span title="10/18/21 17:29:12">
+            74.5</span><br/>
+          <span title="10/23/21 07:29:12">
+            32.5</span>
+        </td>
+        <td class="units">&#176;F</td>
+      </tr>
+      <tr>
+        <td class="label">Heat Index</td>
+        <td class="data new_row hilo_day">
+          <span title="14:18:20" class="hival">
+            40.6</span>
+        </td>
+        <td class="data new_row hilo_week">
+          <span title="00:05:00 (Sunday)" class="hival">
+            46.5</span>
+        </td>
+        <td class="data new_row hilo_month">
+          <span title="11/02/21 14:18:20" class="hival">
+            40.6</span>
+        </td>
+        <td class="data new_row hilo_year">
+          <span title="10/18/21 17:29:12" class="hival">
+            73.4</span>
+        </td>
+        <td class="data new_row hilo_rainyear">
+          <span title="10/18/21 17:29:12" class="hival">
+            73.4</span>
+        </td>
+        <td class="units">&#176;F</td>
+      </tr>
+      <tr>
+        <td class="label">Wind Chill</td>
+        <td class="data new_row hilo_day">
+          <span title="07:43:11" class="loval">
+            4.6</span>
+        </td>
+        <td class="data new_row hilo_week">
+          <span title="07:43:11 (Tuesday)" class="loval">
+            4.6</span>
+        </td>
+        <td class="data new_row hilo_month">
+          <span title="11/02/21 07:43:11" class="loval">
+            4.6</span>
+        </td>
+        <td class="data new_row hilo_year">
+          <span title="11/02/21 07:43:11" class="loval">
+            4.6</span>
+        </td>
+        <td class="data new_row hilo_rainyear">
+          <span title="11/02/21 07:43:11" class="loval">
+            4.6</span>
+        </td>
+        <td class="units">&#176;F</td>
+      </tr>
+      <tr>
+        <td class="label">Dew Point</td>
+        <td class="data new_row hilo_day">
+          <span title="01:25:36">
+            27.6</span><br/>
+          <span title="20:00:00">
+            22.7</span>
+        </td>
+        <td class="data new_row hilo_week">
+          <span title="00:00:36 (Sunday)">
+            38.2</span><br/>
+          <span title="20:00:00 (Tuesday)">
+            22.7</span>
+        </td>
+        <td class="data new_row hilo_month">
+          <span title="11/01/21 12:24:06">
+            30.1</span><br/>
+          <span title="11/02/21 20:00:00">
+            22.7</span>
+        </td>
+        <td class="data new_row hilo_year">
+          <span title="10/19/21 17:29:12">
+            51.5</span><br/>
+          <span title="11/02/21 20:00:00">
+            22.7</span>
+        </td>
+        <td class="data new_row hilo_rainyear">
+          <span title="10/19/21 17:29:12">
+            51.5</span><br/>
+          <span title="11/02/21 20:00:00">
+            22.7</span>
+        </td>
+        <td class="units">&#176;F</td>
+      </tr>
+      <tr>
+        <td class="label">Humidity</td>
+        <td class="data new_row hilo_day">
+          <span title="08:16:10">
+            70</span><br/>
+          <span title="14:50:22">
+            49</span>
+        </td>
+        <td class="data new_row hilo_week">
+          <span title="06:30:57 (Monday)">
+            75</span><br/>
+          <span title="14:50:22 (Tuesday)">
+            49</span>
+        </td>
+        <td class="data new_row hilo_month">
+          <span title="11/01/21 06:30:57">
+            75</span><br/>
+          <span title="11/02/21 14:50:22">
+            49</span>
+        </td>
+        <td class="data new_row hilo_year">
+          <span title="10/30/21 09:58:18">
+            86</span><br/>
+          <span title="10/18/21 17:29:12">
+            38</span>
+        </td>
+        <td class="data new_row hilo_rainyear">
+          <span title="10/30/21 09:58:18">
+            86</span><br/>
+          <span title="10/18/21 17:29:12">
+            38</span>
+        </td>
+        <td class="units">%</td>
+      </tr>
+      <tr>
+        <td class="label">Barometer</td>
+        <td class="data new_row hilo_day">
+          <span title="11:10:08">
+            30.198</span><br/>
+          <span title="00:00:20">
+            30.096</span>
+        </td>
+        <td class="data new_row hilo_week">
+          <span title="11:10:08 (Tuesday)">
+            30.198</span><br/>
+          <span title="00:00:36 (Sunday)">
+            29.659</span>
+        </td>
+        <td class="data new_row hilo_month">
+          <span title="11/02/21 11:10:08">
+            30.198</span><br/>
+          <span title="11/01/21 00:49:32">
+            29.987</span>
+        </td>
+        <td class="data new_row hilo_year">
+          <span title="11/02/21 11:10:08">
+            30.198</span><br/>
+          <span title="10/27/21 17:14:06">
+            29.455</span>
+        </td>
+        <td class="data new_row hilo_rainyear">
+          <span title="11/02/21 11:10:08">
+            30.198</span><br/>
+          <span title="10/27/21 17:14:06">
+            29.455</span>
+        </td>
+        <td class="units"> inHg</td>
+      </tr>
+      <tr>
+        <td class="label">Rain</td>
+        <td class="data new_row hilo_day">
+          0.00</td>
+        <td class="data new_row hilo_week">
+          0.00</td>
+        <td class="data new_row hilo_month">
+          0.00</td>
+        <td class="data new_row hilo_year">
+          1.86</td>
+        <td class="data new_row hilo_rainyear">
+          1.86</td>
+        <td class="units"> in</td>
+      </tr>
+      <tr>
+        <td class="label">Rain Rate</td>
+        <td class="data new_row hilo_day">
+          <span title="00:00:20">
+            0.00</span>
+        </td>
+        <td class="data new_row hilo_week">
+          <span title="00:00:36 (Sunday)">
+            0.00</span>
+        </td>
+        <td class="data new_row hilo_month">
+          <span title="11/01/21 00:00:16">
+            0.00</span>
+        </td>
+        <td class="data new_row hilo_year">
+          <span title="10/26/21 18:44:35">
+            0.24</span>
+        </td>
+        <td class="data new_row hilo_rainyear">
+          <span title="10/26/21 18:44:35">
+            0.24</span>
+        </td>
+        <td class="units"> in/h</td>
+      </tr>
+      <tr>
+        <td class="label">Wind Max</td>
+        <td class="data new_row hilo_day">
+          <span title="07:43:11">
+            41</span><br/>
+          202
+        </td>
+        <td class="data new_row hilo_week">
+          <span title="07:43:11 (Tuesday)">
+            41</span><br/>
+          202
+        </td>
+        <td class="data new_row hilo_month">
+          <span title="11/02/21 07:43:11">
+            41</span><br/>
+          202
+        </td>
+        <td class="data new_row hilo_year">
+          <span title="10/28/21 04:58:34">
+            105</span><br/>
+          225
+        </td>
+        <td class="data new_row hilo_rainyear">
+          <span title="10/28/21 04:58:34">
+            105</span><br/>
+          225
+        </td>
+        <td class="units">
+           mph<br/>
+          &#176;
+        </td>
+      </tr>
+      <tr>
+        <td class="label">Wind Average</td>
+        <td class="data new_row hilo_day">
+          2</td>
+        <td class="data new_row hilo_week">
+          3</td>
+        <td class="data new_row hilo_month">
+          2</td>
+        <td class="data new_row hilo_year">
+          2</td>
+        <td class="data new_row hilo_rainyear">
+          2</td>
+        <td class="units"> mph</td>
+      </tr>
+      <tr>
+        <td class="label">Wind RMS</td>
+        <td class="data new_row hilo_day">
+          2</td>
+        <td class="data new_row hilo_week">
+          3</td>
+        <td class="data new_row hilo_month">
+          3</td>
+        <td class="data new_row hilo_year">
+          3</td>
+        <td class="data new_row hilo_rainyear">
+          3</td>
+        <td class="units"> mph</td>
+      </tr>
+
+      <tr>
+        <td class="label">
+          Vector Average<br/>
+          Average Direction
+        </td>
+        <td class="data new_row hilo_day">
+          1<br/>
+          269
+        </td>
+        <td class="data new_row hilo_week">
+          2<br/>
+          260
+        </td>
+        <td class="data new_row hilo_month">
+          2<br/>
+          258
+        </td>
+        <td class="data new_row hilo_year">
+          1<br/>
+          351
+        </td>
+        <td class="data new_row hilo_rainyear">
+          1<br/>
+          351
+        </td>
+        <td class="units">
+           mph<br/>
+          &#176;
+        </td>
+      </tr>
+
+
+
+
+      <tr>
+        <td class="label">Inside Temperature</td>
+        <td class="data new_row hilo_day">
+          <span title="17:40:00">
+            73.6</span><br/>
+          <span title="09:35:52">
+            69.4</span>
+        </td>
+        <td class="data new_row hilo_week">
+          <span title="17:40:00 (Tuesday)">
+            73.6</span><br/>
+          <span title="10:34:23 (Monday)">
+            69.1</span>
+        </td>
+        <td class="data new_row hilo_month">
+          <span title="11/02/21 17:40:00">
+            73.6</span><br/>
+          <span title="11/01/21 10:34:23">
+            69.1</span>
+        </td>
+        <td class="data new_row hilo_year">
+          <span title="10/18/21 15:29:12">
+            76.6</span><br/>
+          <span title="11/01/21 10:34:23">
+            69.1</span>
+        </td>
+        <td class="data new_row hilo_rainyear">
+          <span title="10/18/21 15:29:12">
+            76.6</span><br/>
+          <span title="11/01/21 10:34:23">
+            69.1</span>
+        </td>
+        <td class="units">&#176;F</td>
+      </tr>
+
+      <tr>
+        <td class="label">Inside Humidity</td>
+        <td class="data new_row hilo_day">
+          <span title="11:35:19">
+            51</span><br/>
+          <span title="18:10:35">
+            45</span>
+        </td>
+        <td class="data new_row hilo_week">
+          <span title="11:35:19 (Tuesday)">
+            51</span><br/>
+          <span title="17:19:03 (Sunday)">
+            45</span>
+        </td>
+        <td class="data new_row hilo_month">
+          <span title="11/02/21 11:35:19">
+            51</span><br/>
+          <span title="11/02/21 18:10:35">
+            45</span>
+        </td>
+        <td class="data new_row hilo_year">
+          <span title="10/30/21 13:31:52">
+            55</span><br/>
+          <span title="10/31/21 17:19:03">
+            45</span>
+        </td>
+        <td class="data new_row hilo_rainyear">
+          <span title="10/30/21 13:31:52">
+            55</span><br/>
+          <span title="10/31/21 17:19:03">
+            45</span>
+        </td>
+        <td class="units">%</td>
+      </tr>
+
+
+
+    </tbody>
+  </table>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div id='about_widget' class="widget">
+  <div class="widget_title">
+    About this weather station
+    <a class="widget_control"
+      onclick="toggle_widget('about')">&diams;</a>
+  </div>
+  <div class="widget_contents">
+  <table>
+    <tr>
+      <td class="label">Hardware</td>
+      <td class="data">LaCrosse WS2316</td>
+    </tr>
+    <tr>
+      <td class="label">Latitude</td>
+      <td class="data">44&deg; 49.62' N</td>
+    </tr>
+    <tr>
+      <td class="label">Longitude</td>
+      <td class="data">093&deg; 15.30' W</td>
+    </tr>
+    <tr>
+      <td class="label">Altitude</td>
+      <td class="data">830 feet</td>
+    </tr>
+    <tr>
+      <td class="label">Server uptime</td>
+      <td class="data">8 days, 1 hour, 42 minutes</td>
+    </tr>
+    <tr>
+      <td class="label">WeeWX uptime</td>
+      <td class="data">8 days, 1 hour, 38 minutes</td>
+    </tr>
+    <tr>
+      <td class="label">WeeWX version</td>
+      <td class="data">4.5.1</td>
+    </tr>
+  </table>
+  </div>
+
+</div>
+
+
+
+      </div>
+
+      <div id="plot_group">
+        <div id="history_widget" class="widget">
+          <div id="plot_title" class="widget_title">History:&nbsp;&nbsp;
+            <a class="button_selected" id="button_history_day"
+               onclick="choose_history('day')">Day</a>
+            <a class="button" id="button_history_week"
+               onclick="choose_history('week')">Week</a>
+            <a class="button" id="button_history_month"
+               onclick="choose_history('month')">Month</a>
+            <a class="button" id="button_history_year"
+               onclick="choose_history('year')">Year</a>
+          </div>
+          <div id="history_day" class="plot_container">
+            <img src="daybarometer.png" alt="Barometer"/>
+            <img src="daytempdew.png"   alt="Outside Temperature" />
+            <img src="daytempfeel.png"  alt="feel" />
+            <img src="dayhum.png"       alt="Humidity" />
+            <img src="daywind.png"      alt="Wind Speed" />
+            <img src="daywinddir.png"   alt="Wind Direction" />
+            <img src="daywindvec.png"   alt="Wind Vector" />
+            <img src="dayrain.png"      alt="Rain" />
+            <img src="daytempin.png"    alt="Inside Temperature" />
+            <img src="dayhumin.png"    alt="Inside Humidity" />
+          </div>
+          <div id="history_week" class="plot_container" style="display:none">
+            <img src="weekbarometer.png" alt="Barometer"/>
+            <img src="weektempdew.png"   alt="Outside Temperature" />
+            <img src="weektempfeel.png"  alt="feel" />
+            <img src="weekhum.png"       alt="Humidity" />
+            <img src="weekwind.png"      alt="Wind Speed" />
+            <img src="weekwinddir.png"   alt="Wind Direction" />
+            <img src="weekwindvec.png"   alt="Wind Vector" />
+            <img src="weekrain.png"      alt="Rain" />
+            <img src="weektempin.png"    alt="Inside Temperature" />
+            <img src="weekhumin.png"    alt="Inside Humidity" />
+          </div>
+          <div id="history_month" class="plot_container" style="display:none">
+            <img src="monthbarometer.png" alt="Barometer"/>
+            <img src="monthtempdew.png"   alt="Outside Temperature" />
+            <img src="monthtempfeel.png"  alt="feel" />
+            <img src="monthhum.png"       alt="Humidity" />
+            <img src="monthwind.png"      alt="Wind Speed" />
+            <img src="monthwinddir.png"   alt="Wind Direction" />
+            <img src="monthwindvec.png"   alt="Wind Vector" />
+            <img src="monthrain.png"      alt="Rain" />
+            <img src="monthtempin.png"    alt="Inside Temperature" />
+            <img src="monthhumin.png"    alt="Inside Humidity" />
+          </div>
+          <div id="history_year" class="plot_container" style="display:none">
+            <img src="yearbarometer.png" alt="Barometer"/>
+            <img src="yeartempdew.png"   alt="Outside Temperature" />
+            <img src="yeartempfeel.png"  alt="feel" />
+            <img src="yearhum.png"       alt="Humidity" />
+            <img src="yearwind.png"      alt="Wind Speed" />
+            <img src="yearwinddir.png"   alt="Wind Direction" />
+            <img src="yearwindvec.png"   alt="Wind Vector" />
+            <img src="yearrain.png"      alt="Rain" />
+            <img src="yeartempin.png"    alt="Inside Temperature" />
+            <img src="yearhumin.png"    alt="Inside Humidity" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="footnote">
+      This station is controlled by <a href="http://weewx.com/">WeeWX</a>, an
+      experimental weather software system written in Python.
+    </p>
+
+
+
+
+</body>
+
+</html>
