@@ -15,6 +15,7 @@ COPY weewx.conf /home/weewx/weewx.conf
 RUN python3 ./setup.py install
 WORKDIR /home/weewx
 RUN sed -i 's/handlers = syslog,/handlers = console,/g' bin/weeutil/logger.py
+RUN sed -i -E 's/(within the skin itself.$)/\1\n\n    [[HomeAssistant]]\n        skin = HomeAssistant\n        enable = true/g' weewx.conf
 WORKDIR /
 RUN rm -rf weex-4.5.1 weex-4.5.1.tar.gz
 
