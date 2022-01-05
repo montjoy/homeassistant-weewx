@@ -12,6 +12,7 @@ RUN echo $PWD
 RUN python3 ./setup.py build
 RUN mkdir -p /home/weewx/public_html
 COPY weewx.conf /home/weewx/weewx.conf
+COPY HomeAssistant_skin /home/weewx/skins/HomeAssistant
 RUN python3 ./setup.py install
 WORKDIR /home/weewx
 RUN sed -i 's/handlers = syslog,/handlers = console,/g' bin/weeutil/logger.py
