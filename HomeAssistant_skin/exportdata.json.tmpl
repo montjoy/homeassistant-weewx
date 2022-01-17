@@ -6,20 +6,30 @@
 	"latitude": "$station.latitude_f",
 	"longitude": "$station.longitude_f",
 	"time": "$current.dateTime.raw",
-	"outside_temp": "$current.outTemp.raw",
-	"outside_temp_unit": "$unit.unit_type.outTemp",
-	"inside_temp": "$current.inTemp.raw",
-	"inside_temp_unit": "$unit.unit_type.inTemp",
-	"wind_chill": "$current.windchill",
-	"heat_index": "$current.heatindex",
-	"dewpoint": "$current.dewpoint",
-	"outside_humidity": "$current.outHumidity.raw",
-	"inside_humidity": "$current.inHumidity.raw",
-	"barometer": "$current.barometer.raw",
-	"barometer_unit": "$unit.unit_type.barometer",
-	"wind_speed": "$current.windSpeed.raw",
-	"wind_speed_unit": "$unit.unit_type.windSpeed",
-	"wind_direction": "$current.windDir",
-	"rain_rate": "$current.rainRate",
-	"total_rain": "$day.rain.sum"
+	"outside": {
+
+		"outside_temp": "$current.outTemp.round(2).raw",
+		"outside_temp_unit": "$unit.label.outTemp",
+		"outside_humidity": "$current.outHumidity.round(2).raw",
+		"outside_humidity_unit": "$unit.label.outHumidity",
+		"wind_chill": "$current.windchill",
+		"wind_chill_unit": "$unit.label.windchill",
+		"heat_index": "$current.heatindex",
+		"heat_index_unit": "$unit.label.heatindex",
+		"dewpoint": "$current.dewpoint",
+		"dewpoint_unit": "$unit.label.dewpoint",
+		"wind_speed": "$current.windSpeed.round(2).raw",
+		"wind_speed_unit": "$unit.unit_type.windSpeed",
+		"wind_direction": "$current.windDir",
+		"rain_rate": "$current.rainRate",
+		"total_rain": "$day.rain.sum"
+		"barometer": "$current.barometer.round(2).raw",
+		"barometer_unit": "$unit.unit_type.barometer"
+	},
+	"inside": {
+		"inside_temp": "$current.inTemp.round(2).raw",
+		"inside_temp_unit": "$unit.label.inTemp",
+		"inside_humidity": "$current.inHumidity.round(2).raw",
+		"inside_humidity_unit": "$unit.label.inHumidity"
+	}
 }
