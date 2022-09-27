@@ -7,12 +7,12 @@ for mything in current:
     print(mything)
 # contents = current.xpath('.//div[@class="widget_contents"]/table/tbody')
 
-tree.xpath('/html/body/div[@id="contents"]/div[@id="widget_group"]/div[@id="current_widget"]/div[@class="widget_contents"]/table/tbody')
+# tree.xpath('/html/body/div[@id="contents"]/div[@id="widget_group"]/div[@id="current_widget"]/div[@class="widget_contents"]/table/tbody')
 
-/html/body/div[@id="contents"]/div[@id="widget_group"]/div[@id="current_widget"]/div[@class="widget_contents"]/table/tbody/tr/td[@class="label"][text() = "Outside Temperature"]
+# /html/body/div[@id="contents"]/div[@id="widget_group"]/div[@id="current_widget"]/div[@class="widget_contents"]/table/tbody/tr/td[@class="label"][text() = "Outside Temperature"]
 
-//div[@class="widget_contents"]/table/tbody/tr/td[@class="label"][text() = "Outside Temperature"]
+# //div[@class="widget_contents"]/table/tbody/tr/td[@class="label"][text() = "Outside Temperature"]
 
-//div[@class="widget_contents"]/table/tbody/tr/td[@class="label"][text() = "Outside Temperature"]/../td[@class="data"]
+# //div[@class="widget_contents"]/table/tbody/tr/td[@class="label"][text() = "Outside Temperature"]/../td[@class="data"]
 
-//div[@class="widget_contents"]/table/tbody/tr/td[@class="label"][text() = "Outside Temperature"]/../td[@class="data"]/text()
+# //div[@class="widget_contents"]/table/tbody/tr/td[@class="label"][text() = "Outside Temperature"]/../td[@class="data"]/text()
