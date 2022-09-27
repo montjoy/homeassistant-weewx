@@ -3,8 +3,8 @@ FROM $BUILD_FROM
 
 ENV LANG C.UTF-8
 EXPOSE 8099/tcp
-RUN apk add python3 py3-configobj py3-serial py3-usb py3-cheetah py3-pillow
-RUN wget https://weewx.com/downloads/weewx-4.5.1.tar.gz
+RUN apk add python3 py3-configobj py3-pyserial py3-usb py3-cheetah py3-pillow
+RUN wget https://weewx.com/downloads/released_versions/weewx-4.5.1.tar.gz
 RUN tar -xzvf weewx-4.5.1.tar.gz
 RUN cd weewx-4.5.1
 WORKDIR weewx-4.5.1
