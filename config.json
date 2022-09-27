@@ -1,11 +1,12 @@
 {
   "name": "WeeWx",
-  "version": "0.2.10",
+  "version": "0.2.18",
   "slug": "weewx",
   "description": "WeeWX Weather Station",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
   "startup": "application",
   "boot": "auto",
+  "init": false,
   "ports": {
     "8099/tcp": 8099
   },
@@ -20,7 +21,7 @@
     "station_driver": "WS23xx",
     "station_rain_year_start": "1",
     "station_week_start": "6",
-    "driver_port": "/dev/ttyUSB0",
+    "driver_port": "/dev/ttyUSB1",
     "driver_model": "LaCrosse WS2316",
     "driver_driver": "weewx.drivers.ws23xx"
   },
@@ -43,6 +44,6 @@
   "stage": "experimental",
   "ingress": true,
   "devices": [
-	  "/dev/ttyUSB0"
+	  "/dev/ttyUSB1"
   ]
 }
